@@ -1,13 +1,27 @@
 .navBar{
     background-color: #fff !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
+    -webkit-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
+    -moz-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
+
 }
 
 .elementosNav{
     display: flex;
-    width: 30%;
     justify-content: space-around;
     color: #37474f;
     font-weight: 700;
+    cursor: pointer;
+}
+
+.elementosContainer{
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
 }
 
 .elementos{
@@ -21,6 +35,14 @@
 .logo{
     width: 40%;
     margin: auto;
+}
+
+.profilePic {
+    width: 50px;  /* Ajusta el tamaño según necesites */
+    height: 50px; /* Mantiene la proporción */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor sin deformarse */
+    border: 2px solid #ddd; /* Opcional: borde para mejor visualización */
 }
 
 .tituloBiblioteca{

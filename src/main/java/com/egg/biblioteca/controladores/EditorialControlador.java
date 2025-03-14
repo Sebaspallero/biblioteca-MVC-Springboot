@@ -31,19 +31,17 @@ public class EditorialControlador {
     public String registro(@RequestParam String nombre, ModelMap modelo) {
         try {
             editorialServicio.crearEditorial(nombre);
-            modelo.put("exito", "La editorial fue cargado exitosamente");
+            modelo.put("exito", "La editorial fue cargada exitosamente");
 
+            return "redirect:/inicio";
         } catch (InvalidArgumentException ex) {
             modelo.put("error", ex.getMessage());
-
             return "editorial_form.html";
         }
-        return "index.html";
     }
 
     @GetMapping("/lista")
     public String listar(ModelMap modelo) {
-
         List<Editorial> editoriales = editorialServicio.listarEditoriales();
         modelo.addAttribute("editoriales", editoriales);
         return "editorial_list.html";
@@ -60,7 +58,6 @@ public class EditorialControlador {
     public String modificar(@PathVariable Long id, String nombre, ModelMap modelo) {
         try {
             editorialServicio.modificarEditorial(nombre, id);
-
             return "redirect:../lista";
         } catch (InvalidArgumentException ex) {
             modelo.put("error", ex.getMessage());

@@ -48,15 +48,15 @@ public class LibroControlador {
                        @RequestParam(required = false) Long idAutor,
                        @RequestParam(required = false) Long idEditorial,
                        ModelMap modelo) {
-    try {
-        libroServicio.crearLibro(isbn, titulo, ejemplares, idAutor, idEditorial);
-        modelo.put("exito", "El libro fue cargado correctamente");
-    } catch (InvalidArgumentException ex) {
-        modelo.put("error", ex.getMessage());
-        return "libro_form.html";
+        try {
+            libroServicio.crearLibro(isbn, titulo, ejemplares, idAutor, idEditorial);
+            modelo.put("exito", "El libro fue cargado correctamente");
+            return "redirect:/inicio";
+        } catch (InvalidArgumentException ex) {
+            modelo.put("error", ex.getMessage());
+            return "libro_form.html";
+        }
     }
-    return "index.html";
-}
 
     @GetMapping("/lista")
     public String listar(ModelMap modelo) {

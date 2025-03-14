@@ -32,12 +32,13 @@ public class AutorControlador {
         try {
             autorServicio.crearAutor(nombre);
             modelo.put("exito", "El autor fue cargado exitosamente");
-
+            return "redirect:/inicio";
+            
         } catch (InvalidArgumentException ex) {
             modelo.put("error", ex.getMessage());
             return "autor_form.html";
         }
-        return "index.html";
+       
     }
 
     @GetMapping("/lista")
